@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Еспериментальна сторiнка - black-red</title>
+    <title>Call of Duty - Рейтинг Ігор</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,97 +14,332 @@
 
 <nav class="navbar navbar-expand-lg custom-navbar">
     <div class="container">
-        <a class="navbar-brand" href="#"><i class="fas fa-code"></i> MySite</a>
+        <a class="navbar-brand" href="#" onclick="showGrid()"><i class="fas fa-crosshairs"></i> COD RATING</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">Головна</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Про нас</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Контакти</a></li>
-            </ul>
+            <div class="d-flex gap-3 mt-3 mt-lg-0">
+                <button class="btn-gradient" onclick="showGrid()">
+                    <i class="fas fa-gamepad"></i> Всі ігри
+                </button>
+                <button class="btn-gradient" onclick="showRatings()">
+                    <i class="fas fa-trophy"></i> Рейтинги
+                </button>
+            </div>
         </div>
     </div>
 </nav>
 
-<div class="container mb-5">
+<div class="container mt-4 fade-in" id="hero-banner-view">
+    <div class="hero-banner">
+        <img src="images/main-banner.jpg" alt="Call of Duty Banner" class="banner-img">
 
-    <div class="page-header">
-        <h1>Bootstrap Еспериментальна сторiнка</h1>
-        <p>Червоно-чорний градєнт та неонова пiдсвiтка</p>
-    </div>
-
-    <div class="row mb-4">
-        <div class="col-12">
-            <ul class="nav nav-pills nav-justified custom-nav-pills">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Пункт 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Пункт 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Пункт 3</a>
-                </li>
-            </ul>
+        <div class="banner-overlay">
+            <h1 class="banner-title">Call of Duty Universe</h1>
+            <p class="banner-subtitle">Найкращий каталог ігор культової серії</p>
         </div>
-    </div>
-
-    <div class="row g-4">
-
-        <div class="col-lg-6">
-            <div class="glass-panel h-100">
-                <h4 class="mb-4 text-danger"><i class="fas fa-user-circle"></i> Авторизація</h4>
-                <form>
-                    <div class="row g-3 mb-4">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Ім'я користувача">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="password" class="form-control" placeholder="Пароль">
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-custom-red btn-lg">
-                        <i class="fas fa-paper-plane"></i> Увiйти в аккаунт
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="glass-panel h-100">
-                <h4 class="mb-4 text-danger"><i class="fas fa-cog"></i> Додаткові опції</h4>
-
-                <label class="form-label" style="color: #ffcccc;">Виберіть рівень доступу:</label>
-                <select class="form-select mb-4">
-                    <option selected>Опція 1 (Стандарт)</option>
-                    <option value="2">Опція 2 (Адміністратор)</option>
-                    <option value="3">Опція 3 (Гість)</option>
-                </select>
-
-                <hr style="border-color: rgba(255, 26, 26, 0.5);">
-
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                    <div>
-                        <button class="btn btn-outline-danger me-2">Скинути</button>
-                        <button class="btn btn-warning">Увага!</button>
-                    </div>
-                    <div>
-                        <span class="badge bg-danger fs-6">Bootstrap V5</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 
-<footer>
-    <div class="container">
-        © 2026 Лабораторна робота 8
+<div class="container my-5">
+
+    <div id="grid-view" class="fade-in">
+        <h2 class="text-center mb-5 section-title">Каталог серії Call of Duty</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+            <div class="col">
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/cod1.png" alt="Modern Warfare" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Call of Duty 4: Modern Warfare</h5>
+                        <div class="meta-info">
+                            <span><i class="fas fa-calendar-alt"></i> 2007</span>
+                            <span><i class="fas fa-desktop"></i> PC, Xbox, PS</span>
+                        </div>
+                        <div class="rating-block">
+                            <div class="score">9.5/10</div>
+                        </div>
+                        <button class="btn btn-custom-red"
+                                onclick="openGame(this)"
+                                data-title="Call of Duty 4: Modern Warfare"
+                                data-img="images/cod1.png"
+                                data-meta="<i class='fas fa-calendar-alt'></i> 2007 | <i class='fas fa-desktop'></i> PC, Xbox, PS | <i class='fas fa-tag'></i> Шутер"
+                                data-score="9.5/10"
+                                data-desc="Культова частина, яка перенесла серію з Другої світової у сучасні реалії конфліктів. Це перша гра серії, де з'явилася система перків, кастомізація зброї та серії вбивств (Killstreaks) у мережевій грі, що назавжди змінило жанр багатокористувацьких шутерів.">
+                            Детальніше
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/cod2.png" alt="Modern Warfare 2" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Call of Duty: Modern Warfare 2</h5>
+                        <div class="meta-info">
+                            <span><i class="fas fa-calendar-alt"></i> 2009</span>
+                            <span><i class="fas fa-desktop"></i> PC, Xbox, PS</span>
+                        </div>
+                        <div class="rating-block">
+                            <div class="score">9.8/10</div>
+                        </div>
+                        <button class="btn btn-custom-red"
+                                onclick="openGame(this)"
+                                data-title="Call of Duty: Modern Warfare 2"
+                                data-img="images/cod2.png"
+                                data-meta="<i class='fas fa-calendar-alt'></i> 2009 | <i class='fas fa-desktop'></i> PC, Xbox, PS | <i class='fas fa-tag'></i> Екшен"
+                                data-score="9.8/10"
+                                data-desc="Епічне продовження з шокуючими місіями (включаючи скандальну 'Ні слова російською'). Світ стоїть на порозі Третьої світової війни через дії терориста Макарова. Мультиплеєр став ще динамічнішим та зібрав мільйони гравців.">
+                            Детальніше
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/cod3.jpg" alt="Black Ops" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Call of Duty: Black Ops</h5>
+                        <div class="meta-info">
+                            <span><i class="fas fa-calendar-alt"></i> 2010</span>
+                            <span><i class="fas fa-desktop"></i> PC, Xbox, PS</span>
+                        </div>
+                        <div class="rating-block">
+                            <div class="score">9.3/10</div>
+                        </div>
+                        <button class="btn btn-custom-red" onclick="openGame(this)" data-title="Call of Duty: Black Ops" data-img="images/cod3.jpg" data-meta="<i class='fas fa-calendar-alt'></i> 2010 | <i class='fas fa-desktop'></i> PC, Xbox, PS" data-score="9.3/10" data-desc="Шпигунський трилер часів Холодної війни. Головний герой Алекс Мейсон прокидається у кімнаті для допитів і повинен згадати свої місії. Гра вивела зомбі-режим на новий рівень.">Детальніше</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/aw.jpg" alt="Advanced Warfare" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Call of Duty: Advanced Warfare</h5>
+                        <div class="meta-info">
+                            <span><i class="fas fa-calendar-alt"></i> 2014</span>
+                            <span><i class="fas fa-desktop"></i> PC, Xbox, PS</span>
+                        </div>
+                        <div class="rating-block">
+                            <div class="score">8.0/10</div>
+                        </div>
+                        <button class="btn btn-custom-red" onclick="openGame(this)" data-title="Call of Duty: Advanced Warfare" data-img="images/aw.jpg" data-meta="<i class='fas fa-calendar-alt'></i> 2014 | <i class='fas fa-desktop'></i> PC, Xbox, PS" data-score="8.0/10" data-desc="Нова ера серії. Гравці отримали екзоскелети, які змінили механіку пересування (подвійні стрибки, ривки). Головним антагоністом виступив Джонатан Айронс, роль якого зіграв Кевін Спейсі.">Детальніше</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/iw.jpg" alt="Infinite Warfare" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Call of Duty: Infinite Warfare</h5>
+                        <div class="meta-info">
+                            <span><i class="fas fa-calendar-alt"></i> 2016</span>
+                            <span><i class="fas fa-desktop"></i> PC, Xbox, PS</span>
+                        </div>
+                        <div class="rating-block">
+                            <div class="score">7.5/10</div>
+                        </div>
+                        <button class="btn btn-custom-red" onclick="openGame(this)" data-title="Call of Duty: Infinite Warfare" data-img="images/iw.jpg" data-meta="<i class='fas fa-calendar-alt'></i> 2016 | <i class='fas fa-rocket'></i> Sci-Fi Shooter" data-score="7.5/10" data-desc="Наймасштабніший крок у майбутнє. Бойові дії переносяться у космос. Гравці керують власним космічним кораблем 'Відплата' та беруть участь у масштабних битвах у невагомості.">Детальніше</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/ww2.jpg" alt="WWII" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Call of Duty: WWII</h5>
+                        <div class="meta-info">
+                            <span><i class="fas fa-calendar-alt"></i> 2017</span>
+                            <span><i class="fas fa-desktop"></i> PC, Xbox, PS</span>
+                        </div>
+                        <div class="rating-block">
+                            <div class="score">8.2/10</div>
+                        </div>
+                        <button class="btn btn-custom-red" onclick="openGame(this)" data-title="Call of Duty: WWII" data-img="images/ww2.jpg" data-meta="<i class='fas fa-calendar-alt'></i> 2017 | <i class='fas fa-history'></i> Історичний" data-score="8.2/10" data-desc="Повернення до витоків. Відмова від джетпаків та футуризму. Похмура, реалістична кампанія про висадку в Нормандії та звільнення Європи силами 1-ї піхотної дивізії США.">Детальніше</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/warzone.jpg" alt="Warzone" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Call of Duty: Warzone</h5>
+                        <div class="meta-info">
+                            <span><i class="fas fa-calendar-alt"></i> 2020</span>
+                            <span><i class="fas fa-desktop"></i> PC, Xbox, PS (Free)</span>
+                        </div>
+                        <div class="rating-block">
+                            <div class="score">8.8/10</div>
+                        </div>
+                        <button class="btn btn-custom-red" onclick="openGame(this)" data-title="Call of Duty: Warzone" data-img="images/warzone.jpg" data-meta="<i class='fas fa-calendar-alt'></i> 2020 | <i class='fas fa-parachute-box'></i> Battle Royale" data-score="8.8/10" data-desc="Безкоштовна 'Королівська битва', яка об'єднала мільйони гравців. Величезна карта Верданськ, унікальна механіка ГУЛАГу (шанс повернутися в бій після смерті) та контракти на карті.">Детальніше</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-</footer>
+
+    <div id="detail-view" style="display: none;" class="fade-in">
+        <button onclick="showGrid()" class="btn btn-outline-light mb-4">
+            <i class="fas fa-arrow-left"></i> Назад до каталогу
+        </button>
+
+        <div class="glass-card p-4 p-md-5">
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img id="detail-img" src="" alt="Обкладинка гри" class="img-fluid rounded" style="width: 100%; object-fit: cover; box-shadow: 0 0 20px rgba(255, 26, 26, 0.3);">
+                </div>
+                <div class="col-lg-7">
+                    <h1 id="detail-title" class="text-danger mb-3 section-title" style="font-size: 2.5rem;"></h1>
+                    <div id="detail-meta" class="meta-info mb-4" style="font-size: 1.1rem;"></div>
+                    <div class="rating-block mb-4">
+                        <span class="text-light me-2">Оцінка:</span>
+                        <div id="detail-score" class="score" style="font-size: 2rem;"></div>
+                        <div class="stars" style="font-size: 1.5rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-white mb-3">Про гру:</h4>
+                    <p id="detail-desc" style="font-size: 1.15rem; line-height: 1.8; color: #ddd;"></p>
+                    <button class="btn btn-custom-red mt-4 btn-lg"><i class="fas fa-download"></i> Завантажити гру</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rating-view" style="display: none;" class="fade-in">
+        <button onclick="showGrid()" class="btn btn-outline-light mb-4">
+            <i class="fas fa-arrow-left"></i> Назад до каталогу
+        </button>
+        <h2 class="text-center mb-5 section-title text-danger">Офіційний Топ Рейтинг</h2>
+
+        <div class="glass-card p-4">
+            <div class="table-responsive">
+                <table class="table custom-table">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width: 10%;">Місце</th>
+                        <th scope="col" style="width: 50%;">Назва гри</th>
+                        <th scope="col" style="width: 20%;">Рік випуску</th>
+                        <th scope="col" style="width: 20%;">Оцінка</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row" class="text-danger fs-4">1</th>
+                        <td class="fw-bold fs-5">Call of Duty: Modern Warfare 2</td>
+                        <td>2009</td>
+                        <td class="score"><i class="fas fa-star" style="font-size: 16px;"></i> 9.8</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-danger fs-4">2</th>
+                        <td class="fw-bold fs-5">Call of Duty 4: Modern Warfare</td>
+                        <td>2007</td>
+                        <td class="score"><i class="fas fa-star" style="font-size: 16px;"></i> 9.5</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-danger fs-4">3</th>
+                        <td class="fw-bold fs-5">Call of Duty: Black Ops</td>
+                        <td>2010</td>
+                        <td class="score"><i class="fas fa-star" style="font-size: 16px;"></i> 9.3</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td class="fw-bold">Call of Duty: Warzone</td>
+                        <td>2020</td>
+                        <td class="score"><i class="fas fa-star" style="font-size: 16px;"></i> 8.8</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td class="fw-bold">Call of Duty: WWII</td>
+                        <td>2017</td>
+                        <td class="score"><i class="fas fa-star" style="font-size: 16px;"></i> 8.2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td class="fw-bold">Call of Duty: Advanced Warfare</td>
+                        <td>2014</td>
+                        <td class="score"><i class="fas fa-star" style="font-size: 16px;"></i> 8.0</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td class="fw-bold">Call of Duty: Infinite Warfare</td>
+                        <td>2016</td>
+                        <td class="score"><i class="fas fa-star" style="font-size: 16px;"></i> 7.5</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Показує сітку з іграми ТА банер
+    function showGrid() {
+        document.getElementById('detail-view').style.display = 'none';
+        document.getElementById('rating-view').style.display = 'none';
+
+        document.getElementById('grid-view').style.display = 'block';
+        document.getElementById('hero-banner-view').style.display = 'block'; // Банер видно
+        window.scrollTo(0, 0);
+    }
+
+    // Показує таблицю рейтингів, ховає банер
+    function showRatings() {
+        document.getElementById('grid-view').style.display = 'none';
+        document.getElementById('detail-view').style.display = 'none';
+        document.getElementById('hero-banner-view').style.display = 'none'; // Ховаємо банер
+
+        document.getElementById('rating-view').style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+
+    // Показує детальну інформацію, ховає банер
+    function openGame(buttonElement) {
+        const title = buttonElement.getAttribute('data-title');
+        const imgSrc = buttonElement.getAttribute('data-img');
+        const meta = buttonElement.getAttribute('data-meta');
+        const score = buttonElement.getAttribute('data-score');
+        const desc = buttonElement.getAttribute('data-desc');
+
+        document.getElementById('detail-title').innerText = title;
+        document.getElementById('detail-img').src = imgSrc;
+        document.getElementById('detail-meta').innerHTML = meta;
+        document.getElementById('detail-score').innerText = score;
+        document.getElementById('detail-desc').innerText = desc;
+
+        document.getElementById('grid-view').style.display = 'none';
+        document.getElementById('rating-view').style.display = 'none';
+        document.getElementById('hero-banner-view').style.display = 'none'; // Ховаємо банер
+
+        document.getElementById('detail-view').style.display = 'block';
+
+        window.scrollTo(0, 0);
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
